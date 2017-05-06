@@ -1,0 +1,96 @@
+{% extends 'oauth/base.html' %}
+{% block title %} Register New User {% endblock %}
+{% block navbar %}
+    <!--Navbar-->
+    <nav class="navbar navbar-toggleable-md navbar-light fixed-top scrolling-navbar">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <strong>IITJ</strong>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link">About</a>
+                    </li>
+                </ul>
+                <form class="form-inline waves-effect waves-light">
+                    <input class="form-control" type="text" placeholder="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!--/.Navbar-->
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div style="margin-top: 7em;"></div>
+        <div class="row">
+            <div class="col-md-6 col-lg-5 login-form mx-auto float-none">
+                <!--Form with header-->
+                <div class="card">
+                    <div class="card-block">
+                        <form action="" method="post">
+                        {% csrf_token %}
+                            <!--Header-->
+                            <div class="form-header blue">
+                                <h3><i class="fa fa-user"></i> Register:</h3>
+                            </div>
+                            {% if error_message %}
+                                <div class="red-text"><p>Password doesn't match</p></div>
+                            {% endif %}
+
+                            <!--Body-->
+                            <div class="md-form">
+                                <i class="fa fa-phone prefix"></i>
+                                <input type="text" id="username" name="username" class="form-control">
+                                <label for="usernames">Phone as username</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-user prefix"></i>
+                                <input type="text" id="first_name" name="first_name" class="form-control">
+                                <label for="first_name">First name</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="prefix"></i>
+                                <input type="text" id="last_name" name="last_name" class="form-control">
+                                <label for="last_name">Last name</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix"></i>
+                                <input type="text" id="email" name="email" class="form-control">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-phone prefix"></i>
+                                <input type="text" id="phone" name="phone" class="form-control">
+                                <label for="phone">Phone</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="password" name="password" class="form-control">
+                                <label for="password">Password</label>
+                            </div>
+
+                            <div class="md-form">
+                                <i class="prefix"></i>
+                                <input type="password" id="verifypass" name="verifypass" class="form-control">
+                                <label for="verifypass">Type password again</label>
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn blue" type="submit">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--/Form with header-->
+    </div>
+{% endblock %}
